@@ -14,7 +14,7 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog (PP (..), dynamicLogWithPP, shorten, wrap, xmobarColor, xmobarPP)
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.FadeInactive
-import XMonad.Hooks.ManageDocks (ToggleStruts (..), avoidStruts, docksEventHook, manageDocks)
+import XMonad.Hooks.ManageDocks (ToggleStruts (..), avoidStruts, docksEventHook, manageDocks, docks)
 import XMonad.Hooks.ManageHelpers (doFullFloat, isFullscreen)
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
@@ -185,7 +185,7 @@ myKeys =
     -- Terminal
     ("M-<Return>", spawn myTerminal),
     -- Redshift
-    ("M-r", spawn "redshift -O 4400"),
+    ("M-r", spawn "redshift -O 2400"),
     ("M-S-r", spawn "redshift -x"),
     -- Scrot
     ("M-s", spawn "scrot"),
@@ -209,9 +209,9 @@ main = do
     xmobarLaptop <- spawnPipe "xmobar -x 0 ~/.config/xmobar/primary.hs"
     xmobarMonitor <- spawnPipe "xmobar -x 1 ~/.config/xmobar/secondary.hs"
     -- Xmonad
-    xmonad $ ewmh def {
-        manageHook = (isFullscreen --> doFullFloat) <+> manageDocks <+> insertPosition Below Newer,
-        handleEventHook = docksEventHook,
+    xmonad $ docks $ ewmh def {
+        manageHook = (isFullscreen --> doFullFloat) <+> insertPosition Below Newer,
+        -- handleEventHook = docksEventHook,
         modMask = myModMask,
         terminal = myTerminal,
         startupHook = myStartupHook,
