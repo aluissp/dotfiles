@@ -25,3 +25,5 @@ xob-brightness-js | xob -s brightness &
 
 # Para xampp
 PATH="${PATH}:/opt/lampp/bin"
+# php y laravel
+PATH="${PATH}:${HOME}/.config/composer/vendor/bin"
