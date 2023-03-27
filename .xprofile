@@ -1,0 +1,52 @@
+#!bin/sh
+# Screens
+~/.screenlayout/monitors.sh &
+# ~/.screenlayout/monitors.sh
+
+# pycritty
+export PATH=$HOME/.local/bin:$PATH
+
+# systray battery icon
+cbatticon -u 5 &
+# Network
+(nm-applet) &
+# Volumen
+(volumeicon) &
+
+# Automount Devices
+udiskie -t &
+# Java Fonts
+# xsettingsd &
+# Wallpaper
+nitrogen --restore &
+# Composer
+picom -b --config ~/.config/picom.conf &
+# Overlay Bar
+# xob-pulse-py | xob -s pulse &
+# xob-brightness-js | xob -s brightness &
+
+# Para xampp
+# PATH="${PATH}:/opt/lampp/bin"
+# php y laravel
+PATH="${PATH}:${HOME}/.config/composer/vendor/bin"
+
+# GNOME PolicyKit authentication
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Desktop notification
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+
+#on laptops without seperate numeric keyboard put hashtag in front
+numlockx on &
+
+
+# TESTING
+# autostart ArcoLinux Welcome App
+# run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
+
+#starting utility applications at boot time
+# variety &
+pamac-tray &
+blueberry-tray &
+
+# optimus-manager-qt &

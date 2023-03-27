@@ -1,0 +1,9 @@
+*
+!.gitignore
+
+!autostart
+!rc.xml
+!menu.xml
+!environment
+!scripts
+
