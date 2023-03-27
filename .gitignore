@@ -1,4 +1,4 @@
-# Ignore everything
+ Ignore everything
 /*
 !.gitignore
 !.gitmodules
@@ -14,4 +14,3 @@
 !.xprofile
 !.Xresources
 !.config
-

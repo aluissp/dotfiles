@@ -403,5 +403,4 @@ neofetch
 #cpufetch
 #colorscript random
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-#. "$HOME/.cargo/env"
+alias dotfiles="git --git-dir $HOME/.dotfiles/ --work-tree $HOME"
