@@ -226,4 +226,4 @@ UXTerm*boldMode: false
 UXTerm*colorBDMode: true
 UXTerm*colorBD: rgb:ff/ff/ff
 
-Xcursor.size: 16
+// Xcursor.size: 16

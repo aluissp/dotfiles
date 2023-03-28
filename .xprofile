@@ -1,7 +1,7 @@
 #!bin/sh
 # Screens
-~/.screenlayout/monitors.sh &
-# ~/.screenlayout/monitors.sh
+# ~/.screenlayout/monitors.sh &
+~/.screenlayout/monitors.sh
 
 # pycritty
 export PATH=$HOME/.local/bin:$PATH
