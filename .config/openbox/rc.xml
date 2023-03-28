@@ -40,7 +40,7 @@
                     'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Arc-Clone</name>
+    <name>Arc-Dark</name>
     <titleLayout>DSLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -366,7 +366,7 @@
       <action name="Execute">
         <command>flameshot gui</command>
       </action>
-    </keybind>
+    </keybind>    
     <keybind key="A-F2">
       <action name="Execute">
         <command>xfce4-appfinder --collapsed</command>
