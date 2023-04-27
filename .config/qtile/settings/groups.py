@@ -13,6 +13,7 @@ from .keys import mod, keys
 # Icons:
 # nf-fa-firefox,
 # nf-fae-python,
+# nf-cod-code, 
 # nf-dev-terminal,
 # nf-fa-code,
 # nf-oct-git_merge,
@@ -21,7 +22,7 @@ from .keys import mod, keys
 # nf-mdi-layers
 
 groups = [Group(i) for i in [
-    "   ", "   ", "   ", "   ", "  ", "   ", "   ", "   ", "   ",
+    "   ", " 󰌠  ", "   ", "   ", "  ", "   ", "   ", "   ", "   ",
 ]]
 
 for i, group in enumerate(groups):
