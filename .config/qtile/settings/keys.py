@@ -89,8 +89,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     )),
 
     # Brightness
+    # devicename: amdgpu_bl0, amdgpu_bl1
     ([], "XF86MonBrightnessUp", lazy.spawn(
-        "brightnessctl -c backlight -d amdgpu_bl0 s +10%")),
+        "brightnessctl -c backlight -d amdgpu_bl1 s +10%")),
     ([], "XF86MonBrightnessDown", lazy.spawn(
-        "brightnessctl -c backlight -d amdgpu_bl0 s 10%-")),
+        "brightnessctl -c backlight -d amdgpu_bl1 s 10%-")),
 ]]
