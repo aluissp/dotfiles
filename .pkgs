@@ -79,6 +79,7 @@ bluez-utils
 brightnessctl
 broadcom-wl-dkms
 btrfs-progs
+cbatticon
 clonezilla
 conky-lua-archers
 cryptsetup
