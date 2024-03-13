@@ -16,3 +16,5 @@
 !.config
 !git-config.sh
 !.xephyr
+!.pkgs
+!.aur-pkgs
