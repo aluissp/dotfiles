@@ -403,8 +403,6 @@ neofetch
 #cpufetch
 #colorscript random
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # My Own configs
 alias grep='grep --color=auto'
 alias cat='bat --style=plain --paging=never'
@@ -419,4 +417,3 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[33m\]$(__gi
 
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /usr/share/fzf/key-bindings.bash
-
