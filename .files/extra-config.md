@@ -45,6 +45,12 @@ pip install matplotlib imageio opencv-python seaborn scikit-learn
 
 ### Docker
 
+To install docker, use the following command:
+
+```bash
+sudo pacman -S docker docker-buildx # Arch Linux
+```
+
 Use the following command to start the docker service:
 
 ```bash
