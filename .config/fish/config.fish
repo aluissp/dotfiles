@@ -22,3 +22,6 @@ alias dotfiles "git --git-dir $HOME/.dotfiles/ --work-tree $HOME"
 
 # Prompt
 starship init fish | source
+
+# fzf
+fzf_key_bindings
