@@ -3,6 +3,7 @@ from .theme import colors
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
+
 def base(fg='text', bg='dark'):
     return {
         'foreground': colors[fg],
@@ -26,9 +27,9 @@ def icon(fg='text', bg='dark', fontsize=16, text="?"):
 def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
-        text="", # Icon: nf-cod-triangle_left
-        fontsize=37,
-        padding=-2.5
+        text="",  # Icon: nf-cod-triangle_left
+        fontsize=49,
+        padding=-2
     )
 
 
@@ -69,7 +70,7 @@ primary_widgets = [
 
     powerline('color4', 'dark'),
 
-    icon(bg="color4", text=' '), # Icon: nf-fa-download
+    icon(bg="color4", text=' '),  # Icon: nf-fa-download
 
     widget.CheckUpdates(
         background=colors['color4'],
@@ -95,7 +96,7 @@ primary_widgets = [
 
     powerline('color1', 'color2'),
 
-    icon(bg="color1", fontsize=17, text='󰃰 '), # Icon: nf-md-calendar_clock
+    icon(bg="color1", fontsize=17, text='󰃰 ') , # Icon: nf-md-calendar_clock
 
     widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
 
