@@ -25,3 +25,6 @@ starship init fish | source
 
 # fzf
 fzf_key_bindings
+
+# conda
+source /opt/miniconda3/etc/fish/conf.d/conda.fish
