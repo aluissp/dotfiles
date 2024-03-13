@@ -11,18 +11,18 @@ from .keys import mod, keys
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 # Icons:
-# nf-fa-firefox,
-# nf-fae-python,
+# nf-md-google_earth, 󰊷
+# nf-fae-python, 󰌠
 # nf-cod-code, 
-# nf-dev-terminal,
-# nf-fa-code,
-# nf-oct-git_merge,
-# nf-linux-docker,
-# nf-mdi-image,
-# nf-mdi-layers
+# nf-dev-terminal, 
+# nf-md-nodejs, 󰎙
+# nf-dev-git_merge, 
+# nf-md-folder, 󰉋
+# nf-fa-youtube_play, 
+# nf-linux-archlinux, 
 
 groups = [Group(i) for i in [
-    "   ", " 󰌠  ", "   ", "   ", "  ", "   ", "   ", "   ", "   ",
+    " 󰊷  ", " 󰌠  ", "   ", " 󰎙  ", "  ", "   ", " 󰉋  ", "   ", "   ",
 ]]
 
 for i, group in enumerate(groups):
