@@ -46,7 +46,7 @@ numlockx on &
 
 # Starting utility applications at boot time
 # variety &
-pamac-tray &
+# pamac-tray &
 blueberry-tray &
 
 # optimus-manager-qt &

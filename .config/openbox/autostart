@@ -36,7 +36,7 @@ numlockx &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 ## Volume control for systray
-(volumeicon) &
+# (volumeicon) &
 
 
 ## Turn off/on System Beep
@@ -46,7 +46,7 @@ xset b off
 xfce4-power-manager &
 
 ##Clipboard Manager
-(xfce4-clipman) &
+# (xfce4-clipman) &
 
 ## XFCE4 Settings
 #xfsettingsd &

@@ -15,7 +15,7 @@ xset b off
 xfce4-power-manager &
 
 # Clipboard Manager
-(xfce4-clipman) &
+# (xfce4-clipman) &
 
 ## XFCE4 Settings
 #xfsettingsd &
