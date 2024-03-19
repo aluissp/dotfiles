@@ -223,8 +223,10 @@ networkmanager-vpnc
 nfs-utils
 nilfs-utils
 nitrogen
+nodejs
 noto-fonts
 noto-fonts-emoji
+npm
 nss-mdns
 ntfs-3g
 ntp
@@ -420,6 +422,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yad
+yarn
 yay-bin
 zenity
 zsh

@@ -20,7 +20,7 @@ style = "purple"
 format = "[$localipv4]($style) "
 
 [line_break]
-disabled = true
+disabled = false
 
 [directory]
 style = "bold blue"
