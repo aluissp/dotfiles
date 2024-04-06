@@ -18,11 +18,11 @@ from .keys import mod, keys
 # nf-md-nodejs, 󰎙
 # nf-dev-git_merge, 
 # nf-md-folder, 󰉋
-# nf-fa-youtube_play, 
+# nf-fa-youtube, 
 # nf-linux-archlinux, 
 
 groups = [Group(i) for i in [
-    " 󰊷  ", " 󰌠  ", "   ", " 󰎙  ", "  ", "   ", " 󰉋  ", "   ", "   ",
+    " 󰊷  ", " 󰌠  ", "   ", " 󰎙  ", "  ", "   ", " 󰉋  ", "   ", "   ",
 ]]
 
 for i, group in enumerate(groups):
