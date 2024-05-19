@@ -21,6 +21,7 @@ archlinux-tweak-tool-git
 arcolinux-alacritty-git
 arcolinux-arc-kde
 arcolinux-bin-git
+arcolinux-bootloader-grub-git
 arcolinux-common-git
 arcolinux-config-all-desktops-git
 arcolinux-conky-collection-git
@@ -60,8 +61,8 @@ arcolinux-variety-git
 arcolinux-volumeicon-git
 arcolinux-wallpapers-git
 arcolinux-welcome-app-git
-arcolinux-xfce-git
 arcolinux-zsh-git
+arconet-xfce
 asciinema
 autorandr
 avahi
@@ -81,6 +82,8 @@ broadcom-wl-dkms
 btrfs-progs
 cbatticon
 clonezilla
+cmake
+composer
 conky-lua-archers
 cryptsetup
 cuda
@@ -167,7 +170,6 @@ iw
 jfsutils
 jq
 jsoncpp
-kvantum-qt5-git
 laptop-detect
 less
 lib32-mesa
@@ -194,6 +196,7 @@ lxappearance-obconf
 lxrandr
 man-db
 man-pages
+mariadb
 mc
 mdadm
 memtest86+
@@ -259,6 +262,7 @@ paru-bin
 pavucontrol
 pcsclite
 perl-linux-desktopfiles
+php
 picom
 pkgfile
 playerctl
@@ -277,6 +281,7 @@ python-pyparted
 qt5ct
 qtile
 rate-mirrors-bin
+rebuild-detector
 redshift
 refind
 reflector
