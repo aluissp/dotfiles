@@ -22,7 +22,7 @@ def autostart():
 
 main = None
 dgroups_key_binder = None
-dgroups_app_rules = []
+dgroups_app_rules: list = []
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = True
