@@ -77,6 +77,7 @@ blueberry
 bluez
 bluez-libs
 bluez-utils
+brave-bin
 brightnessctl
 broadcom-wl-dkms
 btrfs-progs
@@ -84,7 +85,6 @@ cbatticon
 clonezilla
 cmake
 composer
-conky-lua-archers
 cryptsetup
 cuda
 cudnn
@@ -212,6 +212,7 @@ modemmanager
 mpv
 mtools
 mtpfs
+mypy
 nano
 nbd
 ndisc6
@@ -263,6 +264,9 @@ pavucontrol
 pcsclite
 perl-linux-desktopfiles
 php
+php-gd
+php-pgsql
+php-sqlite
 picom
 pkgfile
 playerctl
@@ -277,6 +281,7 @@ pulseaudio-alsa
 pulseaudio-bluetooth
 pv
 python-pip
+python-pipenv
 python-pyparted
 qt5ct
 qtile
@@ -370,6 +375,7 @@ wpa_supplicant
 wvdial
 xapp
 xcape
+xdebug
 xdg-desktop-portal-gtk
 xdg-user-dirs
 xf86-input-elographics
@@ -427,7 +433,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yad
-yarn
 yay-bin
 zenity
 zsh
