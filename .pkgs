@@ -57,11 +57,11 @@ arcolinux-systemd-services-git
 arcolinux-tint2-git
 arcolinux-tint2-themes-git
 arcolinux-variety-autostart-git
-arcolinux-variety-git
 arcolinux-volumeicon-git
 arcolinux-wallpapers-git
 arcolinux-welcome-app-git
 arcolinux-zsh-git
+arconet-variety-config
 arconet-xfce
 asciinema
 autorandr
@@ -85,6 +85,7 @@ cbatticon
 clonezilla
 cmake
 composer
+conky-lua-archers
 cryptsetup
 cuda
 cudnn
