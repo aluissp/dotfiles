@@ -77,8 +77,8 @@ You can customize the git prompt and activate fish shell.
 curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh \
 && mv git-prompt.sh .git-prompt.sh
 
-chmod +x git-prompt.sh
-./git-prompt.sh
+chmod +x .git-prompt.sh
+./.git-prompt.sh
 
 sudo chsh $USER -s /usr/bin/fish
 ```
@@ -98,7 +98,7 @@ If you have any problem, you can check the [official documentation](https://gith
 
 ### 6. Work with multiple monitors
 
-If you have multiple monitors, you can use the `arandr` tool, simply run it and save the configuration like `~/.screenlayout/monitor.sh`. After that, reboot your system to apply the changes.
+If you have multiple monitors, you can use the `arandr` tool, simply run it and save the configuration like `~/.screenlayout/monitors.sh`. After that, reboot your system to apply the changes.
 
 ### 7. Install the themes and icons
 
@@ -112,11 +112,11 @@ Once you have downloaded, use the following commands to install them:
 
 ```bash
 cd /usr/share/themes/
-sudo mv ~/Descargas/Orchis.tar.xz .
+sudo mv ~/Downloads/Orchis.tar.xz .
 sudo tar -xvf Orchis.tar.xz
 
 cd /usr/share/icons/
-sudo mv ~/Descargas/01-Tela.tar.xz .
+sudo mv ~/Downloads/01-Tela.tar.xz .
 sudo tar -xvf 01-Tela.tar.xz
 ```
 
@@ -128,7 +128,7 @@ By default there're some wallpapers. However, you can download more from [here](
 Or you can clone with git and use the nitrogen tool to apply the changes.
 
 ```bash
-cd Imágenes
+cd Pictures
 git clone https://github.com/antoniosarosi/Wallpapers.git
 nitrogen
 ```
