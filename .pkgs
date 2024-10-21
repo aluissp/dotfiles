@@ -83,7 +83,6 @@ broadcom-wl-dkms
 btrfs-progs
 cbatticon
 clonezilla
-cmake
 composer
 conky-lua-archers
 cryptsetup
@@ -207,7 +206,6 @@ mintstick-git
 mkinitcpio
 mkinitcpio-nfs-utils
 mkinitcpio-openswap
-mlocate
 mobile-broadband-provider-info
 modemmanager
 mpv
@@ -271,6 +269,7 @@ php-sqlite
 picom
 pkgfile
 playerctl
+plocate
 polkit
 polkit-gnome
 poppler-glib
