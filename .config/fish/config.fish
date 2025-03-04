@@ -1,6 +1,6 @@
 # Greeting
 set fish_greeting ""
-neofetch
+neofetch >&2
 
 # Aliases
 
