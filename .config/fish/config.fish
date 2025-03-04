@@ -34,4 +34,8 @@ source /opt/miniconda3/etc/fish/conf.d/conda.fish
 function mkfile
     mkdir -p (dirname "$argv[1]")
     touch "$argv[1]"
+
+    if test "$argv[2]" = "c"; or test "$argv[2]" = "-c"; test "$argv[2]" = "--code";
+        code "$argv[1]"
+    end
 end
