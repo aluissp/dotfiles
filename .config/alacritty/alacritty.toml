@@ -31,5 +31,8 @@ family = "agave Nerd Font"
 [font.normal]
 family = "agave Nerd Font"
 
+[font]
+size = 9.5
+
 [window]
 opacity = 0.9
