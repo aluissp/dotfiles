@@ -14,8 +14,11 @@
 !.xprofile
 !.Xresources
 !.config
-!git-config.sh
 !.xephyr
 !.pkgs
 !.aur-pkgs
 !.files
+
+# Git config file
+!.gitconfig
+!.ssh
