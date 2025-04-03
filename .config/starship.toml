@@ -68,6 +68,8 @@ symbol = " "                           # nf-seti-go
 [conda]
 format = 'via [$symbol( $environment)]($style) '
 
+[bun]
+style = "bold white"
 
 [battery]
 full_symbol = "󰁹 "        # nf-md-battery
