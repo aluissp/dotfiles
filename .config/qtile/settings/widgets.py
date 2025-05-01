@@ -70,17 +70,25 @@ primary_widgets = [
 
     powerline('color4', 'dark'),
 
-    icon(bg="color4", text=' '),  # Icon: nf-fa-download
+    # icon(bg="color4", text=' '),  # Icon: nf-fa-download
 
-    widget.CheckUpdates(
-        background=colors['color4'],
-        colour_have_updates=colors['text'],
-        colour_no_updates=colors['text'],
-        no_update_string='0',
-        display_format='{updates}',
-        update_interval=1800,
-        custom_command='checkupdates',
-    ),
+    # widget.CheckUpdates(
+    #     background=colors['color4'],
+    #     colour_have_updates=colors['text'],
+    #     colour_no_updates=colors['text'],
+    #     no_update_string='0',
+    #     display_format='{updates}',
+    #     update_interval=1800,
+    #     custom_command='checkupdates',
+    # ),
+
+    icon(bg="color4", text='󰎓 '),  # Icon: nf-md-thermostat
+
+    widget.ThermalSensor(**base(bg='color4'), threshold=50.0),
+
+    icon(bg="color4", text='  '),  # Icon: nf-oct-cpu
+
+    widget.CPU(**base(bg='color4'), format='{load_percent}%'),
 
     powerline('color3', 'color4'),
 
@@ -96,13 +104,13 @@ primary_widgets = [
 
     powerline('color1', 'color2'),
 
-    icon(bg="color1", fontsize=17, text='󰃰 ') , # Icon: nf-md-calendar_clock
+    icon(bg="color1", fontsize=17, text='󰃰 '),  # Icon: nf-md-calendar_clock
 
     widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
 
     powerline('dark', 'color1'),
 
-    widget.Systray(background=colors['dark'], padding=5),
+    # widget.Systray(background=colors['dark'], padding=5)
 ]
 
 secondary_widgets = [
