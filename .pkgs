@@ -116,7 +116,6 @@ iw
 jfsutils
 jq
 jsoncpp
-kvantum-qt5-git
 laptop-detect
 less
 lib32-mesa
@@ -139,8 +138,8 @@ logrotate
 lsb-release
 lsscsi
 lvm2
+lxappearance
 lxappearance-obconf
-lxrandr
 man-db
 man-pages
 mc
@@ -192,6 +191,7 @@ openssh
 openvpn
 os-prober
 otf-codenewroman-nerd
+papirus-icon-theme
 partclone
 parted
 partimage
@@ -219,6 +219,7 @@ pv
 python-pip
 python-pipenv
 python-pyparted
+qt5-doc
 qt5ct
 qtile
 rebuild-detector
@@ -243,6 +244,7 @@ smartmontools
 sof-firmware
 squashfs-tools
 starship
+strace
 sudo
 surfn-icons-git
 syslinux
