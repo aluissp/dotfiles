@@ -22,7 +22,7 @@ configuration {
 	icon-theme: "Papirus";
 	drun-match-fields: "name,generic,exec,categories";
 	drun-show-actions: false;
-	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	drun-display-format: " {name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 	disable-history: false;
 	ignored-prefixes: "";
 	sort: false;

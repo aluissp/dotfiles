@@ -110,7 +110,7 @@ primary_widgets = [
 
     powerline('dark', 'color1'),
 
-    # widget.Systray(background=colors['dark'], padding=5)
+    widget.Systray(background=colors['dark'], padding=5)
 ]
 
 secondary_widgets = [
