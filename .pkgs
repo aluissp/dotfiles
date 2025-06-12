@@ -72,6 +72,7 @@ ffmpegthumbnailer
 file-roller
 firefox
 fish
+flameshot
 freetype2
 fsarchiver
 geany
@@ -79,7 +80,6 @@ ghostscript
 git
 gnome-disk-utility
 gnome-keyring
-gnome-screenshot
 gnu-netcat
 google-chrome
 gpart
@@ -87,7 +87,6 @@ gparted
 gpm
 gptfdisk
 grub
-grub-customizer
 gsfonts
 gsimplecal
 gst-libav
@@ -118,6 +117,7 @@ jq
 jsoncpp
 laptop-detect
 less
+lftp
 lib32-mesa
 lib32-vulkan-icd-loader
 lib32-vulkan-radeon
@@ -159,7 +159,6 @@ mypy
 nano
 nbd
 ndisc6
-neofetch
 network-manager-applet
 networkmanager
 networkmanager-openconnect
@@ -366,7 +365,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yad
-yarn
 zenity
 zsh
 zsh-completions
