@@ -1,0 +1,261 @@
+# !bin/sh
+
+# 1. Update the system
+echo "[INFO] Updating the system"
+sudo pacman -Syu
+
+
+# 2. Default values
+echo -e "\n[INFO] Default username and email\nDefault responses are selected in brackets: (default response -> yes) = ([y]/n)\n"
+
+username="Luis Perugachi"
+email="luisprg05@gmail.com"
+
+echo "Username: $username"
+echo "Email: $email"
+
+# Change the values?
+read -p "Do you want to change it? (y/[n]): " update_data
+update_data=${update_data,,}
+
+if [ -z "$update_data" ]; then
+  update_data="n"
+fi
+
+if [ "$update_data" = "y" ]; then
+
+  is_ok="n"
+  while [ "$is_ok" = "n" ]; do
+    read -p "Enter new username: " username
+    read -p "Enter new email: " email
+    echo "Username: $username"
+    echo "Email: $email"
+    read -p "Are these values correct? (y/n): " is_ok
+    is_ok=${is_ok,,}
+  done
+
+fi
+
+
+# 2.  Generate a new SSH key (optional)
+
+echo -e "\n[INFO] Login in GitHub (Optional)"
+read -p "Do you want to login?([y]/n): " to_login
+to_login=${to_login,,}
+
+if [ -z "$to_login" ]; then
+  to_login="y"
+fi
+
+if [ "$to_login" = "y" ]; then
+
+  ssh-keygen -t ed25519 -C "$email"
+  cat .ssh/id_*.pub
+  read -p "Please, copy it and configure your SSH key in https://github.com/settings/keys. (press enter to continue) " _
+fi
+
+
+# 3. Clone the repository and restore the dotfiles
+
+echo -e "\n[INFO] Clone and restore dotfiles settings"
+cd ~
+git clone --bare git@github.com:aluissp/dotfiles.git .dotfiles
+
+bashrc=~/.bashrc
+dotfiles_shortcut="alias dotfiles=\"git --git-dir \$HOME/.dotfiles/ --work-tree \$HOME\""
+
+if ! grep -qF "$dotfiles_shortcut" "$bashrc"; then
+  echo "$dotfiles_shortcut" >> "$bashrc"
+fi
+
+source "$bashrc"
+git --git-dir "$HOME/.dotfiles/" --work-tree "$HOME" checkout -f --
+echo "[INFO] Dotfiles downloaded succesfully"
+
+# 4. Install the required packages
+
+echo -e "\n[INFO] Install the required packages"
+sudo pacman -S --needed - < .pkgs
+for x in $(< .aur-pkgs); do yay -S $x; done
+echo "[INFO] Packages installed succesfully"
+
+
+# 5. Git & fish
+echo -e "\n[INFO] Git & fish setup"
+curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh && mv git-prompt.sh .git-prompt.sh
+chmod +x .git-prompt.sh
+./.git-prompt.sh
+sudo chsh $USER -s /usr/bin/fish
+echo "[INFO] Git & fish configured succesfully"
+
+# 6. Work with multiple monitors
+echo -e "\n[INFO] Work with multiple monitors"
+
+read -p "Do you want to setup multiple monitors? ([y]/n): " setup_monitors
+setup_monitors=${setup_monitors,,}
+
+if [ -z "$setup_monitors" ]; then
+  setup_monitors="y"
+fi
+
+if [ "$setup_monitors" = "y" ]; then
+  read -p "Please, save the monitor setting with this name: ~/.screenlayout/monitors.sh, (press enter to continue) " _
+  arandr > /dev/null 2>&1 &
+  echo "[INFO] Monitors configured succesfully"
+fi
+
+
+# 7. Install the themes and icons
+echo -e "\n[INFO] Install theme and icon\n"
+
+echo "Theme: Orchis-Dark"
+echo "Icons: Tela-dark"
+
+read -p "Do you want install it? ([y]/n): " install_themes
+install_themes=${install_themes,,}
+
+if [ -z "$install_themes" ]; then
+  install_themes="y"
+fi
+
+if [ "$install_themes" = "y" ]; then
+  yay -S megatools
+  theme="https://mega.nz/file/UMBjEYzb#DiQLE-y51Xq4u67e1WuTbQ8zVxy88ehuHxGHAMWvvoA"
+  icon="https://mega.nz/file/VIYVwYKJ#V4dDjzsisdKsN4tPUXRFw2MIanDolIX6DBgNrQYm-Sg"
+
+  cd /usr/share/themes/
+  sudo megadl "$theme"
+  sudo tar -xvf Orchis-theme.tar.xz
+  sudo rm Orchis-theme.tar.xz
+
+  cd /usr/share/icons/
+  sudo megadl "$icon"
+  sudo tar -xvf Tela-icon.tar.xz
+  sudo rm Tela-icon.tar.xz
+
+  echo "[INFO] Theme and icon installed succesfully"
+fi
+
+read -p "Do you want setup themes and icons? ([y]/n): " open_lxappearance
+open_lxappearance=${open_lxappearance,,}
+
+if [ -z "$open_lxappearance" ]; then
+  open_lxappearance="y"
+fi
+
+if [ "$open_lxappearance" = "y" ]; then
+  lxappearance > /dev/null 2>&1 &
+  echo "[INFO] Theme and icon configured succesfully"
+fi
+
+
+# 9. Wallpapers
+echo -e "\n[INFO] Wallpapers\n"
+
+read -p "Do you download wallpapers? ([y]/n): " download_wallpapers
+download_wallpapers=${download_wallpapers,,}
+
+if [ -z "$download_wallpapers" ]; then
+  download_wallpapers="y"
+fi
+
+if [ "$download_wallpapers" = "y" ]; then
+  cd ~
+  yay -S megatools
+  wallpapers="https://mega.nz/folder/gEhHiCQC#ZhXrvWYkCcoz_d0UXESIDg"
+  wallpaper_dir="Pictures/Wallpapers"
+
+  if [ ! -d "$wallpaper_dir" ]; then
+    mkdir -p "$wallpaper_dir"
+  fi
+
+  cd "$wallpaper_dir"
+  megadl "$wallpaper_dir"
+
+  echo "[INFO] Wallpapers downloaded succesfully"
+fi
+
+read -p "Do you want setup wallpapers? ([y]/n): " setup_wallpapers
+setup_wallpapers=${setup_wallpapers,,}
+
+if [ -z "$setup_wallpapers" ]; then
+  setup_wallpapers="y"
+fi
+
+if [ "$setup_wallpapers" = "y" ]; then
+  nitrogen > /dev/null 2>&1 &
+  echo "[INFO] Wallpapers configured succesfully"
+fi
+
+
+# 10. GRUB
+echo -e "\n[INFO] Setup GRUB\n"
+
+echo "GRUB theme: Elegant-forest-float-left-dark-1080"
+
+read -p "Do you want install it? ([y]/n): " download_grub_theme
+
+download_grub_theme=${download_grub_theme,,}
+
+if [ -z "$download_grub_theme" ]; then
+  download_grub_theme="y"
+fi
+
+if [ "$download_grub_theme" = "y" ]; then
+  grub_theme="https://mega.nz/file/IMZjmLqQ#eaU56ihU3W_QH45blhadg6Xt2LS0iouvYZ3xNZrEWxg"
+
+  cd /usr/share/grub/themes
+  sudo mkdir ./Elegant-forest-float-left-dark-1080
+  cd ./Elegant-forest-float-left-dark-1080
+
+  sudo megadl "$grub_theme"
+  sudo tar -xvf Elegant-forest-float-left-dark-1080-grub.tar.gz
+  sudo rm Elegant-forest-float-left-dark-1080-grub.tar.gz
+
+  if grep -q '^GRUB_THEME=' /etc/default/grub; then
+    sudo sed -i 's/^GRUB_THEME=/#GRUB_THEME=/' /etc/default/grub
+  fi
+
+  echo "GRUB_THEME=\"/usr/share/grub/themes/Elegant-forest-float-left-dark-1080/theme.txt\"" | sudo tee -a /etc/default/grub > /dev/null
+
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+  echo "[INFO] GRUB theme downloaded succesfully"
+fi
+
+read -p "Do you want open grub customizer? ([y]/n): " open_grub
+open_grub=${open_grub,,}
+
+if [ -z "$open_grub" ]; then
+  open_grub="y"
+fi
+
+if [ "$open_grub" = "y" ]; then
+  grub-customizer > /dev/null 2>&1 &
+  echo "[INFO] GRUB theme configured succesfully"
+fi
+
+
+# 11. SDDM
+echo -e "\n[INFO] Setup SDDM\n"
+
+yay -S sddm-theme-sugar-candy-git
+
+if [ ! -f /etc/sddm.conf ]; then
+
+  if [ -f ~/.config/sddm/sddm.conf ]; then
+    sudo cp ~/.config/sddm/sddm.conf /etc/sddm.conf
+    echo "[INFO] Copied ~/.config/sddm/sddm.conf to /etc/sddm.conf"
+  fi
+
+else
+  # Replace the theme is exists
+  sudo sed -i 's/^Current=.*/Current=Sugar-Candy/' /etc/sddm.conf
+
+  # Add to end if doesn't exists
+  if ! grep -q '^Current=Sugar-Candy' /etc/sddm.conf; then
+    echo "Current=Sugar-Candy" | sudo tee -a /etc/sddm.conf > /dev/null
+  fi
+
+  echo "[INFO] Set SDDM theme to Sugar-Candy"
+fi
