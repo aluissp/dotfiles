@@ -10,6 +10,7 @@ This is a collection of my dotfiles. These configuration files are based on Qtil
   - [Table of contents](#table-of-contents)
   - [Setup](#setup)
     - [1. Update the system](#1-update-the-system)
+    - [2. Sign in to your GitHub account (Optional)](#2-sign-in-to-your-github-account-optional)
     - [2. Clone the repository and restore the dotfiles](#2-clone-the-repository-and-restore-the-dotfiles)
     - [3. Install the required packages](#3-install-the-required-packages)
     - [4. Git \& fish](#4-git--fish)
@@ -24,7 +25,7 @@ This is a collection of my dotfiles. These configuration files are based on Qtil
 
 ## Setup
 
-First of all, I recommend you to use the arcolinuxb openbox iso to use these dotfiles. If you want to download it, it's available [here](https://sourceforge.net/projects/arcolinux-community-editions/files/openbox/).
+First of all, I recommend you to use the Manjaro Xfce iso to use these dotfiles. If you want to download it, it's available [here](https://manjaro.org/products/download/x86).
 
 ### 1. Update the system
 
@@ -32,7 +33,19 @@ Before you start, make sure your system is up to date.
 
 ```bash
 sudo pacman -Syu
+# Or
+sudo pamac update
 ```
+
+### 2. Sign in to your GitHub account (Optional)
+
+Generate a new SSH key
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+Once you've generate it, you must copy the public key and paste it in `https://github.com/settings/keys`.
 
 ### 2. Clone the repository and restore the dotfiles
 

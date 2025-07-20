@@ -10,7 +10,6 @@
 !.screenshots
 !.bashrc
 !.zshrc
-!.tmux.conf.local
 !.xprofile
 !.Xresources
 !.config
@@ -18,6 +17,7 @@
 !.pkgs
 !.aur-pkgs
 !.files
+!.gtkrc-2.0
 
 # Git config file
 !.gitconfig

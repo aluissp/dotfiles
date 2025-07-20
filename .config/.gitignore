@@ -12,9 +12,6 @@
 !vifm
 !ranger
 !qtile
-!spectrwm
-!openbox
-!tint2
 !dwm
 !dwmblocks
 !xob
@@ -22,3 +19,8 @@
 !picom.conf
 !pycritty
 !neofetch
+!gtk-2.0
+!gtk-3.0
+!xfce4
+!volumeicon
+!sddm
