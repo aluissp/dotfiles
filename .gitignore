@@ -19,6 +19,7 @@
 !.files
 !.gtkrc-2.0
 !.restore
+!LICENSE.txt
 
 # Git config file
 !.gitconfig
