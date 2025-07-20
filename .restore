@@ -70,21 +70,25 @@ fi
 
 source "$bashrc"
 git --git-dir "$HOME/.dotfiles/" --work-tree "$HOME" checkout -f --
-echo "[INFO] Dotfiles downloaded succesfully"
+echo "[INFO] Dotfiles downloaded successfully"
 
 # 4. Install the required packages
 
 echo -e "\n[INFO] Install the required packages"
 sudo pacman -S --needed - < .pkgs
 for x in $(< .aur-pkgs); do yay -S $x; done
-echo "[INFO] Packages installed succesfully"
+curl -fsSL https://bun.sh/install | bash # Install bun
+echo "[INFO] Packages installed successfully"
 
 
 # 5. Git & fish
 echo -e "\n[INFO] Git & fish setup"
 curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh && mv git-prompt.sh .git-prompt.sh
-chmod +x .git-prompt.sh
-./.git-prompt.sh
+chmod +x .git-prompt.sh && ./.git-prompt.sh
+
+if [ ! -d "$HOME/Workspace/gitlab" ]; then
+  mkdir -p "$HOME/Workspace/gitlab"
+fi
 
 git config --global user.name "$username"
 git config --global user.email "$email"
@@ -93,7 +97,8 @@ git config --global includeIf.gitdir:~/Workspace/gitlab/.user.email "$email"
 
 sudo chsh $USER -s /usr/bin/fish
 
-echo "[INFO] Git & fish configured succesfully"
+echo "[INFO] Git & fish configured successfully"
+
 
 # 6. Work with multiple monitors
 echo -e "\n[INFO] Work with multiple monitors"
@@ -108,7 +113,7 @@ fi
 if [ "$setup_monitors" = "y" ]; then
   read -p "Please, save the monitor setting with this name: ~/.screenlayout/monitors.sh, (press enter to continue) " _
   arandr > /dev/null 2>&1 &
-  echo "[INFO] Monitors configured succesfully"
+  echo "[INFO] Monitors configured successfully"
 fi
 
 
@@ -140,7 +145,7 @@ if [ "$install_themes" = "y" ]; then
   sudo tar -xvf Tela-icon.tar.xz
   sudo rm Tela-icon.tar.xz
 
-  echo "[INFO] Theme and icon installed succesfully"
+  echo "[INFO] Theme and icon installed successfully"
 fi
 
 read -p "Do you want setup themes and icons? ([y]/n): " open_lxappearance
@@ -152,7 +157,7 @@ fi
 
 if [ "$open_lxappearance" = "y" ]; then
   lxappearance > /dev/null 2>&1 &
-  echo "[INFO] Theme and icon configured succesfully"
+  echo "[INFO] Theme and icon configured successfully"
 fi
 
 
@@ -179,7 +184,7 @@ if [ "$download_wallpapers" = "y" ]; then
   cd "$wallpaper_dir"
   megadl "$wallpaper_dir"
 
-  echo "[INFO] Wallpapers downloaded succesfully"
+  echo "[INFO] Wallpapers downloaded successfully"
 fi
 
 read -p "Do you want setup wallpapers? ([y]/n): " setup_wallpapers
@@ -191,7 +196,7 @@ fi
 
 if [ "$setup_wallpapers" = "y" ]; then
   nitrogen > /dev/null 2>&1 &
-  echo "[INFO] Wallpapers configured succesfully"
+  echo "[INFO] Wallpapers configured successfully"
 fi
 
 
@@ -219,15 +224,17 @@ if [ "$download_grub_theme" = "y" ]; then
   sudo tar -xvf Elegant-forest-float-left-dark-1080-grub.tar.gz
   sudo rm Elegant-forest-float-left-dark-1080-grub.tar.gz
 
+  # Comment GRUB_THEME if exists
   if grep -q '^GRUB_THEME=' /etc/default/grub; then
     sudo sed -i 's/^GRUB_THEME=/#GRUB_THEME=/' /etc/default/grub
   fi
 
+  # Add new GRUB_THEME config
   echo "GRUB_THEME=\"/usr/share/grub/themes/Elegant-forest-float-left-dark-1080/theme.txt\"" | sudo tee -a /etc/default/grub > /dev/null
 
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-  echo "[INFO] GRUB theme downloaded succesfully"
+  echo "[INFO] GRUB theme downloaded successfully"
 fi
 
 read -p "Do you want open grub customizer? ([y]/n): " open_grub
@@ -239,7 +246,7 @@ fi
 
 if [ "$open_grub" = "y" ]; then
   grub-customizer > /dev/null 2>&1 &
-  echo "[INFO] GRUB theme configured succesfully"
+  echo "[INFO] GRUB theme configured successfully"
 fi
 
 

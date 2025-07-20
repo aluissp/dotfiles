@@ -32,30 +32,34 @@ xfce4-clipman &
 
 # Wallpaper
 nitrogen --restore &
+
 # Composer
 picom -b --config ~/.config/picom.conf &
+
+# Bluetooth
+blueman-applet &
+
+# On laptops without separate numeric keyboard put hashtag in front
+# numlockx on &
+
 # Overlay Bar
 # xob-pulse-py | xob -s pulse &
 # xob-brightness-js | xob -s brightness &
 
 # Para xampp
 # PATH="${PATH}:/opt/lampp/bin"
+
 # php y laravel
-+PATH="${PATH}:${HOME}/.config/composer/vendor/bin"
+PATH="${PATH}:${HOME}/.config/composer/vendor/bin"
+
+# Interactive wallpapers
+# variety &
+
+# Add/Remove software
+# pamac-tray &
 
 # GNOME PolicyKit authentication
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Desktop notification
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
-
-# On laptops without seperate numeric keyboard put hashtag in front
-# numlockx on &
-
-# TESTING
-
-# Starting utility applications at boot time
-# variety &
-# pamac-tray &
-# blueberry-tray &
-blueman-applet &
