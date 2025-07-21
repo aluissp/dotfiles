@@ -11,15 +11,16 @@ This is a collection of my dotfiles. These configuration files are based on Qtil
   - [Setup](#setup)
     - [1. Update the system](#1-update-the-system)
     - [2. Sign in to your GitHub account (Optional)](#2-sign-in-to-your-github-account-optional)
-    - [2. Clone the repository and restore the dotfiles](#2-clone-the-repository-and-restore-the-dotfiles)
-    - [3. Install the required packages](#3-install-the-required-packages)
-    - [4. Git \& fish](#4-git--fish)
-    - [5. Activate nvidia hybrid graphics](#5-activate-nvidia-hybrid-graphics)
-    - [6. Work with multiple monitors](#6-work-with-multiple-monitors)
-    - [7. Install the themes and icons](#7-install-the-themes-and-icons)
-    - [8. Wallpapers](#8-wallpapers)
-    - [9. Grub](#9-grub)
-    - [10. SDDM](#10-sddm)
+    - [3. Clone the repository and restore the dotfiles](#3-clone-the-repository-and-restore-the-dotfiles)
+    - [4. Install the required packages](#4-install-the-required-packages)
+    - [5. Git \& fish](#5-git--fish)
+    - [6. Activate nvidia hybrid graphics](#6-activate-nvidia-hybrid-graphics)
+    - [7. Work with multiple monitors](#7-work-with-multiple-monitors)
+    - [8. Install the themes and icons](#8-install-the-themes-and-icons)
+    - [9. Wallpapers](#9-wallpapers)
+    - [10. Grub](#10-grub)
+    - [11. SDDM](#11-sddm)
+  - [Automatic restore script](#automatic-restore-script)
   - [Keybindings](#keybindings)
   - [Extra Configuration](#extra-configuration)
 
@@ -47,7 +48,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 Once you've generate it, you must copy the public key and paste it in `https://github.com/settings/keys`.
 
-### 2. Clone the repository and restore the dotfiles
+### 3. Clone the repository and restore the dotfiles
 
 To use these dotfiles, I encourage you to clone this repository like bare repository.
 
@@ -73,7 +74,7 @@ dotfiles checkout -f --
 
 Once you have restored the dotfiles, reboot your system to apply the changes.
 
-### 3. Install the required packages
+### 4. Install the required packages
 
 To install the required packages, you can use the following command:
 
@@ -82,7 +83,7 @@ sudo pacman -S --needed - < .pkgs
 for x in $(< .aur-pkgs); do yay -S $x; done
 ```
 
-### 4. Git & fish
+### 5. Git & fish
 
 You can customize the git prompt and activate fish shell.
 
@@ -96,24 +97,23 @@ chmod +x .git-prompt.sh
 sudo chsh $USER -s /usr/bin/fish
 ```
 
-### 5. Activate nvidia hybrid graphics
+### 6. Activate nvidia hybrid graphics
 
-If you have nvidia graphics, you'll notice that there're `optimus-manager-qt` and `optimus-manager` installed. First, you need comment the following lines in `/etc/sddm.conf`:
+If you have open source nvidia graphics you can skip this step, however, if you have another type of nvidia graphics you must install `optimus-manager-qt` and `optimus-manager`. Then, you need comment the following lines in `/etc/sddm.conf`:
 
 ```bash
 # DisplayCommand=/usr/share/sddm/scripts/Xsetup
 # DisplayStopCommand=/usr/share/sddm/scripts/Xstop
 ```
 
-After that, reboot your system and open the `optimus-manager-qt` to activate the hybrid graphics.
-To apply the changes, reboot your system again.
+After that, reboot your system and open the `optimus-manager-qt` to activate the hybrid graphics. To apply the changes, reboot your system again.
 If you have any problem, you can check the [official documentation](https://github.com/Askannz/optimus-manager?tab=readme-ov-file#kde)
 
-### 6. Work with multiple monitors
+### 7. Work with multiple monitors
 
 If you have multiple monitors, you can use the `arandr` tool, simply run it and save the configuration like `~/.screenlayout/monitors.sh`. After that, reboot your system to apply the changes.
 
-### 7. Install the themes and icons
+### 8. Install the themes and icons
 
 There're many themes and icons that you can see [here](https://www.gnome-look.org/browse/). However, the themes and icons that I use are the following:
 
@@ -135,7 +135,7 @@ sudo tar -xvf 01-Tela.tar.xz
 
 Finally, you can use the `lxappearance` tool to apply the changes. Remember to reboot your system to apply the changes.
 
-### 8. Wallpapers
+### 9. Wallpapers
 
 By default there're some wallpapers. However, you can download more from [here](https://github.com/antoniosarosi/Wallpapers.git)
 Or you can clone with git and use the nitrogen tool to apply the changes.
@@ -146,17 +146,33 @@ git clone https://github.com/antoniosarosi/Wallpapers.git
 nitrogen
 ```
 
-### 9. Grub
+### 10. Grub
 
 There's a amazing tool to customize the grub. The `Grub Customizer` helps you to change the background, the colors, the fonts, etc. Open rofi and type `Grub Customizer` to open it.
 
-### 10. SDDM
+### 11. SDDM
 
-SDDM is a nice display manager. You can customize it using the `ArcoLinux Tweak Tool`. Open rofi and type `Tweak Tool` to open it. I've applied the theme `sugar-candy`. If you want to change the background, open the configuration file `/usr/share/sddm/themes/Sugar-Candy/theme.conf`. And set the background like this:
+SDDM is a nice display manager. Open the `/etc/sddm.conf` and update this line to change the sddm theme:
+
+```bash
+[Theme]
+# Current theme name
+Current=Sugar-Candy # SDDM theme
+```
+
+I've applied the theme `sugar-candy`. If you want to change the background, open the configuration file `/usr/share/sddm/themes/Sugar-Candy/theme.conf`. And set the background like this:
 
 ```bash
 # change this
 Background="/usr/share/backgrounds/archlinux-login-backgrounds/att-05.jpg"
+```
+
+## Automatic restore script
+
+To speed up the process of restoring the dotfiles, you can use the `.restore` script. This script will automatically restore the dotfiles, install the required packages, and set up the system interactively. To use it, simply run the following command:
+
+```bash
+bash .restore
 ```
 
 ## Keybindings
