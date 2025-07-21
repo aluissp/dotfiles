@@ -52,6 +52,7 @@ if [ "$to_login" = "y" ]; then
   ssh-keygen -t ed25519 -C "$email"
   cat .ssh/id_*.pub
   read -p "Please, copy it and configure your SSH key in https://github.com/settings/keys. (press enter to continue) " _
+
 fi
 
 
@@ -59,49 +60,82 @@ fi
 
 echo -e "\n[INFO] Clone and restore dotfiles settings"
 cd ~
-git clone --bare git@github.com:aluissp/dotfiles.git .dotfiles
 
-bashrc=~/.bashrc
-dotfiles_shortcut="alias dotfiles=\"git --git-dir \$HOME/.dotfiles/ --work-tree \$HOME\""
+read -p "Do you want download and install dotfiles?([y]/n): " download_dotfiles
+download_dotfiles=${download_dotfiles,,}
 
-if ! grep -qF "$dotfiles_shortcut" "$bashrc"; then
-  echo "$dotfiles_shortcut" >> "$bashrc"
+if [ -z "$download_dotfiles" ]; then
+  download_dotfiles="y"
 fi
 
-source "$bashrc"
-git --git-dir "$HOME/.dotfiles/" --work-tree "$HOME" checkout -f --
-echo "[INFO] Dotfiles downloaded successfully"
+if [ "$download_dotfiles" = "y" ]; then
+  git clone --bare git@github.com:aluissp/dotfiles.git .dotfiles
+
+  bashrc=~/.bashrc
+  dotfiles_shortcut="alias dotfiles=\"git --git-dir \$HOME/.dotfiles/ --work-tree \$HOME\""
+
+  if ! grep -qF "$dotfiles_shortcut" "$bashrc"; then
+    echo "$dotfiles_shortcut" >> "$bashrc"
+  fi
+
+  source "$bashrc"
+  git --git-dir "$HOME/.dotfiles/" --work-tree "$HOME" checkout -f --
+  echo "[INFO] Dotfiles downloaded successfully"
+
+fi
+
 
 # 4. Install the required packages
 
 echo -e "\n[INFO] Install the required packages"
-sudo pacman -S --needed - < .pkgs
-for x in $(< .aur-pkgs); do yay -S $x; done
-curl -fsSL https://bun.sh/install | bash # Install bun
-echo "[INFO] Packages installed successfully"
+cd ~
+
+read -p "Do you want install required packages?([y]/n): " download_packages
+download_packages=${download_packages,,}
+
+if [ -z "$download_packages" ]; then
+  download_packages="y"
+fi
+
+if [ "$download_packages" = "y" ]; then
+
+  sudo pacman -S --needed - < .pkgs
+  for x in $(< .aur-pkgs); do yay -S $x; done
+  curl -fsSL https://bun.sh/install | bash # Install bun
+  echo "[INFO] Packages installed successfully"
+
+fi
 
 
 # 5. Git & fish
 echo -e "\n[INFO] Git & fish setup"
-curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh && mv git-prompt.sh .git-prompt.sh
-chmod +x .git-prompt.sh && ./.git-prompt.sh
+cd ~
 
-if [ ! -d "$HOME/Workspace/gitlab" ]; then
-  mkdir -p "$HOME/Workspace/gitlab"
+read -p "Do you want setup git & fish?([y]/n): " setup_git_fish
+setup_git_fish=${setup_git_fish,,}
+
+if [ -z "$setup_git_fish" ]; then
+  setup_git_fish="y"
 fi
 
-git config --global user.name "$username"
-git config --global user.email "$email"
-git config --global includeIf.gitdir:~/Workspace/gitlab/.user.name "$username"
-git config --global includeIf.gitdir:~/Workspace/gitlab/.user.email "$email"
+if [ "$setup_git_fish" = "y" ]; then
 
-sudo chsh $USER -s /usr/bin/fish
+  curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh && mv git-prompt.sh .git-prompt.sh
+  chmod +x .git-prompt.sh && ./.git-prompt.sh
 
-echo "[INFO] Git & fish configured successfully"
+  git config --global user.name "$username"
+  git config --global user.email "$email"
+
+  sudo chsh $USER -s /usr/bin/fish
+  echo "[INFO] Git & fish configured successfully"
+
+fi
+
 
 
 # 6. Work with multiple monitors
 echo -e "\n[INFO] Work with multiple monitors"
+cd ~
 
 read -p "Do you want to setup multiple monitors? ([y]/n): " setup_monitors
 setup_monitors=${setup_monitors,,}
@@ -119,6 +153,7 @@ fi
 
 # 7. Install the themes and icons
 echo -e "\n[INFO] Install theme and icon\n"
+cd ~
 
 echo "Theme: Orchis-Dark"
 echo "Icons: Tela-dark"
@@ -131,7 +166,11 @@ if [ -z "$install_themes" ]; then
 fi
 
 if [ "$install_themes" = "y" ]; then
-  yay -S megatools
+
+  if ! pacman -Qs megatools > /dev/null; then
+    yay -S --noconfirm megatools
+  fi
+
   theme="https://mega.nz/file/UMBjEYzb#DiQLE-y51Xq4u67e1WuTbQ8zVxy88ehuHxGHAMWvvoA"
   icon="https://mega.nz/file/VIYVwYKJ#V4dDjzsisdKsN4tPUXRFw2MIanDolIX6DBgNrQYm-Sg"
 
@@ -163,6 +202,7 @@ fi
 
 # 9. Wallpapers
 echo -e "\n[INFO] Wallpapers\n"
+cd ~
 
 read -p "Do you download wallpapers? ([y]/n): " download_wallpapers
 download_wallpapers=${download_wallpapers,,}
@@ -172,8 +212,11 @@ if [ -z "$download_wallpapers" ]; then
 fi
 
 if [ "$download_wallpapers" = "y" ]; then
-  cd ~
-  yay -S megatools
+
+  if ! pacman -Qs megatools > /dev/null; then
+    yay -S --noconfirm megatools
+  fi
+
   wallpapers="https://mega.nz/folder/gEhHiCQC#ZhXrvWYkCcoz_d0UXESIDg"
   wallpaper_dir="Pictures/Wallpapers"
 
@@ -182,7 +225,7 @@ if [ "$download_wallpapers" = "y" ]; then
   fi
 
   cd "$wallpaper_dir"
-  megadl "$wallpaper_dir"
+  megadl "$wallpapers"
 
   echo "[INFO] Wallpapers downloaded successfully"
 fi
@@ -202,6 +245,7 @@ fi
 
 # 10. GRUB
 echo -e "\n[INFO] Setup GRUB\n"
+cd ~
 
 echo "GRUB theme: Elegant-forest-float-left-dark-1080"
 
@@ -214,6 +258,11 @@ if [ -z "$download_grub_theme" ]; then
 fi
 
 if [ "$download_grub_theme" = "y" ]; then
+
+  if ! pacman -Qs megatools > /dev/null; then
+    yay -S --noconfirm megatools
+  fi
+
   grub_theme="https://mega.nz/file/IMZjmLqQ#eaU56ihU3W_QH45blhadg6Xt2LS0iouvYZ3xNZrEWxg"
 
   cd /usr/share/grub/themes
@@ -252,8 +301,11 @@ fi
 
 # 11. SDDM
 echo -e "\n[INFO] Setup SDDM\n"
+cd ~
 
-yay -S sddm-theme-sugar-candy-git
+if ! pacman -Qs sddm-theme-sugar-candy-git > /dev/null; then
+  yay -S --noconfirm sddm-theme-sugar-candy-git
+fi
 
 if [ ! -f /etc/sddm.conf ]; then
 
@@ -273,3 +325,8 @@ else
 
   echo "[INFO] Set SDDM theme to Sugar-Candy"
 fi
+
+# Disable lightdm
+sudo systemctl disable lightdm
+# Enable sddm
+sudo systemctl enable sddm
