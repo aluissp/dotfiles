@@ -21,7 +21,6 @@ avahi
 awesome-terminal-fonts
 b43-fwcutter
 base
-base-devel
 bash-completion
 bat
 bind
@@ -139,7 +138,6 @@ libpamac-flatpak-plugin
 libpamac-snap-plugin
 libpwquality
 libva-intel-driver
-libxnvctrl
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
