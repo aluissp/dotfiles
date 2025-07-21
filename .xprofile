@@ -9,17 +9,13 @@ export PATH=$HOME/.local/bin:$PATH # pycritty
 
 
 # Screens
-# ~/.screenlayout/monitors.sh &
-~/.screenlayout/monitors.sh
+~/.screenlayout/monitors.sh &
 
 # systray battery icon
 cbatticon -u 5 &
 
 # Network
 (nm-applet) &
-
-# Volumen
-volumeicon &
 
 # Automount Devices
 udiskie -t &
