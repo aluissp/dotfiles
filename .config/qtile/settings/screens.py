@@ -1,8 +1,8 @@
-# Antonio Sarosi
-# https://youtube.com/c/antoniosarosi
-# https://github.com/antoniosarosi/dotfiles
-
+# Luis Perugachi
+# https://github.com/aluissp/dotfiles
+#
 # Multimonitor support
+#
 
 from libqtile.config import Screen
 from libqtile import bar

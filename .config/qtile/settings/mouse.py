@@ -1,3 +1,9 @@
+# Luis Perugachi
+# https://github.com/aluissp/dotfiles
+#
+# Mouse configs
+#
+
 from libqtile.config import Drag, Click
 from libqtile.lazy import lazy
 from .keys import mod

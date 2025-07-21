@@ -1,5 +1,10 @@
+# Luis Perugachi
+# https://github.com/aluissp/dotfiles
+#
 # Qtile Config File
 # http://www.qtile.org/
+#
+
 
 from libqtile import hook
 

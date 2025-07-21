@@ -1,8 +1,8 @@
-# Antonio Sarosi
-# https://youtube.com/c/antoniosarosi
-# https://github.com/antoniosarosi/dotfiles
-
+# Luis Perugachi
+# https://github.com/aluissp/dotfiles
+#
 # Qtile keybindings
+#
 
 from libqtile.config import Key
 from libqtile.lazy import lazy
@@ -73,7 +73,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "s", lazy.spawn("flameshot gui")),
 
     # Logout
-    ([mod], "x", lazy.spawn("archlinux-logout")),
+    # ([mod], "x", lazy.spawn("archlinux-logout")),
+
+    # Show clip manager
+    ([mod], "v", lazy.spawn("xfce4-popup-clipman")),
 
     # ------------ Hardware Configs ------------
 

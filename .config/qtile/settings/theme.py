@@ -1,8 +1,8 @@
-# Antonio Sarosi
-# https://youtube.com/c/antoniosarosi
-# https://github.com/antoniosarosi/dotfiles
-
+# Luis Perugachi
+# https://github.com/aluissp/dotfiles
+#
 # Theming for Qtile
+#
 
 from os import path
 import subprocess
