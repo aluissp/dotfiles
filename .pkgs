@@ -38,6 +38,7 @@ cronie
 cryptsetup
 cuda
 cudnn
+dbeaver
 dconf-editor
 ddrescue
 device-mapper
@@ -74,6 +75,7 @@ ffmpegthumbnailer
 file-roller
 firefox
 fish
+fisher
 flameshot
 freetype2
 fsarchiver
@@ -126,7 +128,6 @@ lftp
 lib32-libva-intel-driver
 lib32-mesa
 lib32-mesa-utils
-lib32-nvidia-utils
 lib32-vulkan-intel
 lib32-vulkan-nouveau
 lib32-vulkan-radeon
@@ -137,6 +138,7 @@ libopenraw
 libpamac-flatpak-plugin
 libpamac-snap-plugin
 libpwquality
+libreoffice-still
 libva-intel-driver
 lightdm
 lightdm-gtk-greeter
@@ -146,7 +148,6 @@ linux-firmware-marvell
 linux-firmware-meta
 linux510-headers
 linux612
-linux612-nvidia-open
 logrotate
 lsscsi
 lvm2
@@ -175,8 +176,6 @@ memtest86+
 memtest86+-efi
 menulibre
 mesa-utils
-mhwd
-mhwd-db
 micro
 mkinitcpio-nfs-utils
 mkinitcpio-openswap
@@ -187,6 +186,7 @@ mtools
 mtpfs
 mugshot
 mypy
+mysql-workbench
 nano
 nano-syntax-highlighting
 nbd
@@ -210,9 +210,6 @@ nss-mdns
 ntfs-3g
 ntp
 numlockx
-nvidia-prime
-nvidia-settings
-nvidia-utils
 nvme-cli
 open-iscsi
 openresolv
