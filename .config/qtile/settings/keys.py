@@ -56,7 +56,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Browser
-    ([mod], "b", lazy.spawn("google-chrome-stable --force-device-scale-factor=1.1")),
+    ([mod], "b", lazy.spawn("google-chrome-stable --force-device-scale-factor=0.9")),
 
     # File Explorer
     ([mod], "e", lazy.spawn("thunar")),
@@ -92,9 +92,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     )),
 
     # Brightness
-    # devicename: amdgpu_bl0, amdgpu_bl1
+    # devicename: amdgpu_bl0, amdgpu_bl1, intel_backlight
     ([], "XF86MonBrightnessUp", lazy.spawn(
-        "brightnessctl -c backlight -d amdgpu_bl1 s +10%")),
+        "brightnessctl -c backlight -d intel_backlight s +10%")),
     ([], "XF86MonBrightnessDown", lazy.spawn(
-        "brightnessctl -c backlight -d amdgpu_bl1 s 10%-")),
+        "brightnessctl -c backlight -d intel_backlight s 10%-")),
 ]]
