@@ -32,6 +32,7 @@ btrfs-progs
 catfish
 cbatticon
 clonezilla
+cmatrix
 composer
 cpupower
 cronie
@@ -293,7 +294,6 @@ ttf-daddytime-mono-nerd
 ttf-dejavu
 ttf-droid
 ttf-firacode-nerd
-ttf-font-awesome
 ttf-hack
 ttf-inconsolata
 ttf-indic-otf
@@ -321,7 +321,6 @@ variety
 vi
 viewnior
 vim
-vlc
 volumeicon
 vulkan-intel
 vulkan-nouveau
