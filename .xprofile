@@ -35,6 +35,9 @@ picom -b --config ~/.config/picom.conf &
 # Bluetooth
 blueman-applet &
 
+# Screensaver
+xfce4-screensaver &
+
 # On laptops without separate numeric keyboard put hashtag in front
 # numlockx on &
 
