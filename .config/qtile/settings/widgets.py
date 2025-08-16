@@ -134,7 +134,7 @@ secondary_widgets = [
         icon_first=True,
         scale=0.65,
         padding=5,
-        **base(bg='color2')
+        **base(bg='color1')
     ),
 
     powerline('color2', 'color1'),
