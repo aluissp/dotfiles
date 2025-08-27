@@ -38,6 +38,7 @@ cronie
 cryptsetup
 cuda
 cudnn
+dbeaver
 dconf-editor
 ddrescue
 device-mapper
