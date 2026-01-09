@@ -24,6 +24,9 @@ import subprocess
 def autostart():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
 
+    # Start xss-lock with betterlockscreen
+    subprocess.Popen(['xss-lock', '--', 'betterlockscreen', '-l'])
+
 
 main = None
 dgroups_key_binder = None
