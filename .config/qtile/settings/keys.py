@@ -99,5 +99,5 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
         "brightnessctl -c backlight -d intel_backlight s 10%-")),
 
     # Betterlockscreen
-    ([], "XF86PowerOff", lazy.spawn("betterlockscreen -l"))
+    ([mod], "l", lazy.spawn("betterlockscreen -l"))
 ]]

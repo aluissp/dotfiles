@@ -5,7 +5,7 @@
 #
 
 
-from libqtile import widget
+from libqtile import widget, qtile
 from .theme import colors
 
 
@@ -120,7 +120,17 @@ primary_widgets = [
 
     powerline('dark', 'color2'),
 
-    widget.Systray(background=colors['dark'], padding=5)
+    widget.Systray(background=colors['dark'], padding=5),
+
+    # Volume icon, this replace - volumeicon &
+    widget.Volume(
+        fmt='󰕾 {}',
+        background=colors['dark'],
+        foreground=colors['light'],
+        padding=5,
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol')},
+        fontsize=16
+    ),
 ]
 
 secondary_widgets = [
