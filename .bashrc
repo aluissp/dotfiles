@@ -417,3 +417,7 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[33m\]$(__gi
 
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /usr/share/fzf/key-bindings.bash
+
+
+# Flutter
+export PATH="$HOME/fvm/default/bin:$PATH"

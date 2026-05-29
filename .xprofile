@@ -62,3 +62,6 @@ PATH="${PATH}:${HOME}/.config/composer/vendor/bin"
 
 # Desktop notification
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
+
+# FLutter
+export PATH="$HOME/fvm/default/bin:$PATH"
