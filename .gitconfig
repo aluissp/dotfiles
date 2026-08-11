@@ -9,3 +9,11 @@
 	[user]
 		name = Luis Perugachi
 		email = luisprg05@gmail.com
+[core]
+	editor = code --wait
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

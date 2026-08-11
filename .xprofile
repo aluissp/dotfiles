@@ -7,6 +7,8 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export PATH=$HOME/.local/bin:$PATH # pycritty
 
+export XDG_CURRENT_DESKTOP=qtile
+export XDG_SESSION_DESKTOP=qtile
 
 # Screens
 ~/.screenlayout/monitors.sh &

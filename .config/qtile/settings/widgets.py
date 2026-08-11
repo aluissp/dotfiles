@@ -123,14 +123,14 @@ primary_widgets = [
     widget.Systray(background=colors['dark'], padding=5),
 
     # Volume icon, this replace - volumeicon &
-    widget.Volume(
-        fmt='󰕾 {}',
-        background=colors['dark'],
-        foreground=colors['light'],
-        padding=5,
-        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol')},
-        fontsize=16
-    ),
+    # widget.Volume(
+    #     fmt='󰕾 {}',
+    #     background=colors['dark'],
+    #     foreground=colors['light'],
+    #     padding=5,
+    #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol')},
+    #     fontsize=16
+    # ),
 ]
 
 secondary_widgets = [

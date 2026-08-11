@@ -4,7 +4,7 @@
 # cbatticon -u 5 &
 
 # Volumen
-# volumeicon &
+volumeicon &
 
 # install xcape - press super to get menu
 xcape -e 'Super_L=Super_L|space'
