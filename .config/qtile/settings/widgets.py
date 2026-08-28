@@ -3,8 +3,6 @@
 #
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 #
-
-
 from libqtile import widget
 from .theme import colors
 
@@ -34,7 +32,7 @@ def powerline(fg="light", bg="dark"):
         **base(fg, bg),
         text="",  # Icon: nf-cod-triangle_left
         fontsize=49,
-        padding=-2
+        padding=-4
     )
 
 
@@ -119,7 +117,17 @@ primary_widgets = [
 
     powerline('dark', 'color1'),
 
-    widget.Systray(background=colors['dark'], padding=5)
+    widget.Systray(background=colors['dark'], padding=5),
+
+    # Note: Systray widget should be at the end of the bar to avoid issues
+    # widget.Volume(
+    #     fmt='󰕾 {}',
+    #     background=colors['dark'],
+    #     foreground=colors['light'],
+    #     padding=5,
+    #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol')},
+    #     fontsize=16
+    # ),
 ]
 
 secondary_widgets = [

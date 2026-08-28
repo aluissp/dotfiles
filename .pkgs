@@ -10,7 +10,6 @@ amd-ucode
 android-tools
 android-udev
 apparmor
-appstream-qt5
 arandr
 arch-install-scripts
 archiso
@@ -32,6 +31,7 @@ btrfs-progs
 catfish
 cbatticon
 clonezilla
+cmatrix
 composer
 cpupower
 cronie
@@ -88,7 +88,6 @@ glibc-locales
 gnome-disk-utility
 gnome-keyring
 gnome-themes-extra
-gnu-netcat
 go
 gpart
 gparted
@@ -102,7 +101,6 @@ gst-plugins-bad
 gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
-gtk2-perl
 gufw
 gvfs
 gvfs-afc
@@ -138,20 +136,19 @@ libopenraw
 libpamac-flatpak-plugin
 libpamac-snap-plugin
 libpwquality
+libreoffice-fresh
 libva-intel-driver
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
 linux-atm
 linux-firmware-marvell
-linux-firmware-meta
-linux510-headers
 linux612
 linux612-nvidia-open
 logrotate
 lsscsi
 lvm2
-lxappearance-gtk3
+lxappearance
 man-db
 man-pages
 manjaro-alsa
@@ -197,11 +194,9 @@ networkmanager
 networkmanager-openconnect
 networkmanager-openvpn
 networkmanager-pptp
-networkmanager-qt5
 networkmanager-vpnc
 nfs-utils
 nilfs-utils
-nitrogen
 nodejs
 noto-fonts
 noto-fonts-cjk
@@ -232,7 +227,6 @@ php-gd
 php-pgsql
 php-sqlite
 picom
-pidgin
 pkgfile
 playerctl
 plocate
@@ -247,7 +241,6 @@ pv
 python-pip
 python-pipenv
 python-pyparted
-qt5-doc
 qtile
 rebuild-detector
 redshift
@@ -321,7 +314,6 @@ urxvt-perls
 usb_modeswitch
 usbutils
 variety
-vi
 viewnior
 vim
 volumeicon
@@ -331,7 +323,6 @@ vulkan-radeon
 w3m
 wallpapers-2018
 wallpapers-juhraya
-webkit2gtk
 wget
 which
 wireless-regdb
