@@ -3,9 +3,6 @@
 # systray battery icon
 # cbatticon -u 5 &
 
-# Volumen
-volumeicon &
-
 # install xcape - press super to get menu
 xcape -e 'Super_L=Super_L|space'
 
@@ -18,3 +15,6 @@ xfce4-power-manager &
 
 ## XFCE4 Settings
 #xfsettingsd &
+
+# Volumen
+(sleep 2 && volumeicon) &
