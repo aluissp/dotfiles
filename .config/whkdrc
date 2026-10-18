@@ -43,7 +43,7 @@ alt + f                 : komorebic focused-workspace-padding 0; komorebic focus
 alt + t                 : komorebic unstack-all; komorebic toggle-workspace-window-container-behaviour; komorebic focused-workspace-padding 4; komorebic focused-workspace-container-padding 8; komorebic change-layout grid
 
 # MonadTall (también sale del modo Max)
-alt + g                 : komorebic unstack-all; komorebic toggle-workspace-window-container-behaviour; komorebic focused-workspace-padding 4; komorebic focused-workspace-container-padding 8; komorebic change-layout vertical-stack
+alt + g                 : komorebic unstack-all; komorebic toggle-workspace-window-container-behaviour; komorebic focused-workspace-padding 4; komorebic focused-workspace-container-padding 2; komorebic change-layout vertical-stack
 
 # Maximizar solo la ventana actual, como en Windows (otra vez para salir)
 alt + ctrl + f          : komorebic toggle-maximize
