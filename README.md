@@ -11,8 +11,10 @@ Run everything in **PowerShell 7** unless noted.
 1. Install the tools (any shell):
 
    ```powershell
-   winget install Git.Git Microsoft.PowerShell LGUG2Z.komorebi LGUG2Z.whkd Starship.Starship
+   winget install Git.Git Microsoft.PowerShell LGUG2Z.komorebi LGUG2Z.whkd Starship.Starship Flameshot.Flameshot Flow-Launcher.Flow-Launcher
    ```
+
+   Flameshot powers the screenshot keybinds; Flow Launcher replaces rofi.
 
 2. Install **Agave Nerd Font**: download `Agave.zip` from [nerd-fonts releases](https://github.com/ryanoasis/nerd-fonts/releases/latest), extract, select all `.ttf` files → right-click → **Install**.
 
@@ -63,6 +65,48 @@ Run everything in **PowerShell 7** unless noted.
 | `.config/starship.toml` | Prompt, same as the `manjaro` branch |
 | `Documents/PowerShell/Microsoft.PowerShell_profile.ps1` | PowerShell 7 profile (`$PROFILE`): Starship init + `dotfiles` function |
 
+## Keybindings
+
+`mod` is the left **Alt** key. Press **mod + i** to show an overlay with every shortcut.
+
+| Key | Action |
+| ----------------------- | -------------------------------- |
+| **mod + j** | next window (down) |
+| **mod + k** | next window (up) |
+| **mod + h** | focus window left |
+| **mod + l** | focus window right |
+| **mod + shift + h** | decrease master |
+| **mod + shift + l** | increase master |
+| **mod + plus / minus** | resize vertically |
+| **mod + shift + j** | move window down |
+| **mod + shift + k** | move window up |
+| **mod + shift + left / right** | move window left / right |
+| **mod + shift + return** | promote window to master |
+| **mod + shift + f** | toggle floating |
+| **mod + f** | Max layout (stack all windows, cycle with mod + j/k) |
+| **mod + g** | MonadTall layout (exits Max) |
+| **mod + t** | Matrix / grid layout (exits Max) |
+| **mod + ctrl + f** | toggle maximize current window |
+| **mod + n** | next layout |
+| **mod + shift + n** | previous layout |
+| **mod + [1-9]** | Switch to workspace N (1-9) |
+| **mod + shift + [1-9]** | Send Window to workspace N (1-9) |
+| **mod + period** | Focus next monitor |
+| **mod + comma** | Focus previous monitor |
+| **mod + w** | kill window |
+| **mod + ctrl + r** | reload komorebi config |
+| **mod + o** | restart whkd (after editing whkdrc) |
+| **mod + ctrl + q** | quit (stops komorebi, whkd and bar) |
+| **mod + shift + p** | pause / resume tiling |
+| **mod + i** | show shortcuts overlay |
+| **mod + return** | terminal (Windows Terminal) |
+| **mod + b** | browser (Chrome) |
+| **mod + e** | file explorer |
+| **mod + s** | screenshot full screen (Flameshot) |
+| **mod + shift + s** | screenshot selection (Flameshot) |
+
+`Alt + Tab` keeps its default Windows behavior. The rofi launcher (`mod + m` on Manjaro) is configured as a hotkey inside Flow Launcher.
+
 ## Daily use
 
 The `dotfiles` command is defined in the PowerShell profile and works like `git`:
@@ -78,8 +122,8 @@ dotfiles push
 
 | Symptom | Fix |
 |---------|-----|
-| Keybind change does nothing | whkd does not reload its config: `taskkill /IM whkd.exe /F` then `whkd` |
-| Config change not applied | `komorebic stop --whkd --bar; komorebic start --whkd --bar` |
+| Keybind change does nothing | whkd does not reload its config by itself: press `Alt+O` |
+| `komorebi.json` change not applied | Press `Alt+Ctrl+R` |
 | `Alt+F` does not exit fullscreen | By design: exit with `Alt+G` (MonadTall) or `Alt+T` (grid) |
 | No Starship prompt | Starship is only configured for PowerShell 7 (`pwsh`), not Windows PowerShell 5.1 |
 | Squares instead of icons | The terminal font is not set to Agave Nerd Font (step 6) |
