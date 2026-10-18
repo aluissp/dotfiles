@@ -1,0 +1,82 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.41/schema.bar.json",
+  "font_family": "Agave Nerd Font",
+  "font_size": 12,
+  "icon_scale": 1.0,
+  "height": 34,
+  "padding": {
+    "horizontal": 4,
+    "vertical": 2
+  },
+  "widget_spacing": 6,
+  "transparency_alpha": 235,
+  "theme": {
+    "palette": "Base16",
+    "name": "Nord",
+    "accent": "Base0D"
+  },
+  "grouping": {
+    "kind": "Widget",
+    "style": "Default",
+    "rounding": 4
+  },
+  "left_widgets": [
+    {
+      "Komorebi": {
+        "workspaces": {
+          "enable": true,
+          "hide_empty_workspaces": false,
+          "display": "Text"
+        },
+        "layout": {
+          "enable": false,
+          "display": "IconAndText"
+        },
+        "focused_container": {
+          "enable": true,
+          "display": "IconAndText"
+        }
+      }
+    }
+  ],
+  "right_widgets": [
+    {
+      "Cpu": {
+        "enable": true
+      }
+    },
+    {
+      "Memory": {
+        "enable": true
+      }
+    },
+    {
+      "Network": {
+        "enable": true,
+        "show_activity": true,
+        "show_total_activity": false
+      }
+    },
+    {
+      "Date": {
+        "enable": true,
+        "format": {
+          "Custom": "%d/%m/%Y - %H:%M"
+        }
+      }
+    },
+    {
+      "Komorebi": {
+        "layout": {
+          "enable": true,
+          "display": "Icon"
+        }
+      }
+    },
+    {
+      "Battery": {
+        "enable": true
+      }
+    }
+  ]
+}

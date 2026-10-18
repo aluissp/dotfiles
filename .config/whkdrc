@@ -1,0 +1,116 @@
+.shell powershell
+
+# Atajos de komorebi basados en mi config de Qtile
+# https://github.com/aluissp/dotfiles (rama manjaro)
+# Mod = Alt izquierdo. Ubicación: %USERPROFILE%\.config\whkdrc
+# Alt + i muestra un overlay con todos los atajos
+
+# ------------ Window Configs ------------
+
+# mod + j/k/h/l: cambiar de ventana
+# j/k también recorren las apps cuando estás en modo Max (Alt + F)
+alt + j                 : komorebic cycle-stack next; komorebic focus down
+alt + k                 : komorebic cycle-stack previous; komorebic focus up
+alt + h                 : komorebic focus left
+alt + l                 : komorebic focus right
+
+# mod + shift + l/h: agrandar/achicar (grow/shrink de MonadTall)
+alt + shift + l         : komorebic resize-axis horizontal increase
+alt + shift + h         : komorebic resize-axis horizontal decrease
+alt + oem_plus          : komorebic resize-axis vertical increase
+alt + oem_minus         : komorebic resize-axis vertical decrease
+
+# mod + shift + j/k: mover ventana abajo/arriba
+alt + shift + j         : komorebic move down
+alt + shift + k         : komorebic move up
+alt + shift + left      : komorebic move left
+alt + shift + right     : komorebic move right
+
+# Mandar la ventana actual al área principal (master de MonadTall)
+alt + shift + return    : komorebic promote
+
+# mod + shift + f: flotante
+alt + shift + f         : komorebic toggle-float
+
+# ------------ Layouts ------------
+# (Alt + Tab se queda como el selector de ventanas de Windows)
+
+# Max de Qtile: junta todas las apps en una sola, a pantalla completa y sin márgenes.
+# Recórrelas con Alt + j/k. Las apps nuevas se apilan solas (Append) hasta salir con Alt + T/G.
+alt + f                 : komorebic focused-workspace-padding 0; komorebic focused-workspace-container-padding 0; komorebic stack-all; komorebic toggle-workspace-window-container-behaviour
+
+# Matrix (también sale del modo Max)
+alt + t                 : komorebic unstack-all; komorebic toggle-workspace-window-container-behaviour; komorebic focused-workspace-padding 4; komorebic focused-workspace-container-padding 8; komorebic change-layout grid
+
+# MonadTall (también sale del modo Max)
+alt + g                 : komorebic unstack-all; komorebic toggle-workspace-window-container-behaviour; komorebic focused-workspace-padding 4; komorebic focused-workspace-container-padding 8; komorebic change-layout vertical-stack
+
+# Maximizar solo la ventana actual, como en Windows (otra vez para salir)
+alt + ctrl + f          : komorebic toggle-maximize
+
+# Recorrer todos los layouts (next_layout / prev_layout)
+alt + n                 : komorebic cycle-layout next
+alt + shift + n         : komorebic cycle-layout previous
+
+# mod + w: cerrar ventana
+alt + w                 : komorebic close
+
+# mod + period/comma: cambiar de monitor
+alt + oem_period        : komorebic cycle-monitor next
+alt + oem_comma         : komorebic cycle-monitor previous
+
+# mod + ctrl + r: recargar config de komorebi
+alt + ctrl + r          : komorebic reload-configuration
+
+# Recargar whkd (después de editar este archivo)
+alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
+
+# mod + ctrl + q: salir de komorebi
+alt + ctrl + q          : komorebic stop --whkd --bar
+
+# Pausar komorebi (útil en escritorio remoto)
+alt + shift + p         : komorebic toggle-pause
+
+# Ver todos los atajos
+alt + i                 : komorebic toggle-shortcuts
+
+# ------------ App Configs ------------
+
+# mod + Return: terminal
+alt + return            : Start-Process wt
+
+# mod + b: navegador
+alt + b                 : Start-Process chrome
+
+# mod + e: explorador de archivos
+alt + e                 : Start-Process explorer
+
+# mod + s / mod + shift + s: capturas con Flameshot
+alt + s                 : & "C:\Program Files\Flameshot\bin\flameshot.exe" screen
+alt + shift + s         : & "C:\Program Files\Flameshot\bin\flameshot.exe" gui
+
+# mod + m (rofi): configúralo como atajo dentro de Flow Launcher
+
+# ------------ Workspaces ------------
+
+# mod + [1-9]: ir al workspace
+alt + 1                 : komorebic focus-workspace 0
+alt + 2                 : komorebic focus-workspace 1
+alt + 3                 : komorebic focus-workspace 2
+alt + 4                 : komorebic focus-workspace 3
+alt + 5                 : komorebic focus-workspace 4
+alt + 6                 : komorebic focus-workspace 5
+alt + 7                 : komorebic focus-workspace 6
+alt + 8                 : komorebic focus-workspace 7
+alt + 9                 : komorebic focus-workspace 8
+
+# mod + shift + [1-9]: mandar ventana al workspace (sin seguirla, como en Qtile)
+alt + shift + 1         : komorebic send-to-workspace 0
+alt + shift + 2         : komorebic send-to-workspace 1
+alt + shift + 3         : komorebic send-to-workspace 2
+alt + shift + 4         : komorebic send-to-workspace 3
+alt + shift + 5         : komorebic send-to-workspace 4
+alt + shift + 6         : komorebic send-to-workspace 5
+alt + shift + 7         : komorebic send-to-workspace 6
+alt + shift + 8         : komorebic send-to-workspace 7
+alt + shift + 9         : komorebic send-to-workspace 8
